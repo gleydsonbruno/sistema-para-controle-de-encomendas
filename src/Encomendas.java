@@ -8,6 +8,7 @@ public class Encomendas {
     private String data_pedido;
     private String data_entrega;
     private String descricao;
+    private String status;
 
     public Encomendas() {
         tipo_encomenda = "";
@@ -17,6 +18,7 @@ public class Encomendas {
         data_entrega = "";
         descricao = "";
         id_cliente = 0;
+        status = "";
     }
 
     public Encomendas(String tipo_encomenda, String cliente, float valor, String data_pedido, String data_entrega, String descricao, int id_cliente) {
@@ -27,6 +29,7 @@ public class Encomendas {
         this.data_entrega = data_entrega;
         this.descricao = descricao;
         this.id_cliente = id_cliente;
+        this.status = "pendente";
     }
 
     public void setTipo_encomenda(String tipo_encomenda) {
@@ -57,6 +60,10 @@ public class Encomendas {
         this.id_cliente = id_cliente;
     }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getTipo_encomenda() {
         return tipo_encomenda;
     }
@@ -85,16 +92,27 @@ public class Encomendas {
         return id_cliente;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
     public void apresentar_cliente() {
-        System.out.println("ID: " + id_cliente);
+        System.out.println("Tipo de encomenda: " + tipo_encomenda);
         System.out.println("Nome do cliente: " + cliente);
         System.out.println("Valor do pedido: " + valor);
+        System.out.println("Descrição: " + descricao);
+        System.out.println("Data de pedido: " + data_pedido);
         System.out.println("Data de entrega: " + data_entrega);
+        System.out.println("Status do pedido: " + status);
     }
 
     public void cadastrar_encomenda(String tipo) {
         Scanner scanner = new Scanner(System.in);
         tipo_encomenda = tipo;
         scanner.close();
+    }
+
+    public void lista_cliente() {
+        System.out.println("ID: " + id_cliente + "| " + cliente + " - Data para entregar: " + data_entrega);
     }
 }
