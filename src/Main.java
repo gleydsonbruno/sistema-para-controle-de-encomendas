@@ -109,8 +109,12 @@ public class Main {
             encomenda.apresentar_cliente();
 
         } else if (user_action == 3 ){
-            System.out.println(lista_de_encomendas);
-            System.out.println(lista_de_encomendas.get(0).getId_cliente());
+            if (!lista_de_encomendas.isEmpty()) {
+                System.out.println(lista_de_encomendas);
+                System.out.println(lista_de_encomendas.get(0).getId_cliente());
+            } else {
+                System.out.print("Não há nada para mostrar");
+            }
 
         } else if (user_action == 4){
 
@@ -152,18 +156,22 @@ public class Main {
 
                 System.out.println("\nO que deseja fazer?");
                 System.out.println("1 - Deletar pedido | 2 - Finalizar pedido | 3 - Atualizar pedido (not implemented)");
-                System.out.println("4 - Menu\n");
+                System.out.println("4 - Menu  |  5 - Pagou metade\n");
                 int cli_options = scanner.nextInt();
 
                 if (cli_options == 1) {
                     break;
                 } else if (cli_options == 2) {
                     cliente.setStatus("finalizado");
+                    cliente.setData_entrega("pedido entregue na data: " + cliente.getData_entrega());
                     System.out.println("Pedido nº " + access_cli + "finalizado!\n");
                 } else if (cli_options == 3) {
                     break;
                 } else if (cli_options == 4) {
                     break;
+                } else if (cli_options == 5) {
+                    cliente.setPagou_metade("sim");
+                    System.out.println("Cliente de nº " + access_cli + "adiantou o pagamento!\n");
                 } else {
                     break;
                 }

@@ -9,6 +9,7 @@ public class Encomendas {
     private String data_entrega;
     private String descricao;
     private String status;
+    private String pagou_metade;
 
     public Encomendas() {
         tipo_encomenda = "";
@@ -19,6 +20,7 @@ public class Encomendas {
         descricao = "";
         id_cliente = 0;
         status = "";
+        pagou_metade = "";
     }
 
     public Encomendas(String tipo_encomenda, String cliente, float valor, String data_pedido, String data_entrega, String descricao, int id_cliente) {
@@ -30,6 +32,7 @@ public class Encomendas {
         this.descricao = descricao;
         this.id_cliente = id_cliente;
         this.status = "pendente";
+        this.pagou_metade = "não";
     }
 
     public void setTipo_encomenda(String tipo_encomenda) {
@@ -64,6 +67,10 @@ public class Encomendas {
         this.status = status;
     }
 
+    public void setPagou_metade(String pagou_metade) {
+        this.pagou_metade = pagou_metade;
+    }
+
     public String getTipo_encomenda() {
         return tipo_encomenda;
     }
@@ -96,6 +103,10 @@ public class Encomendas {
         return status;
     }
 
+    public String getPagou_metade() {
+        return pagou_metade;
+    }
+
     public void apresentar_cliente() {
         System.out.println("Tipo de encomenda: " + tipo_encomenda);
         System.out.println("Nome do cliente: " + cliente);
@@ -104,6 +115,7 @@ public class Encomendas {
         System.out.println("Data de pedido: " + data_pedido);
         System.out.println("Data de entrega: " + data_entrega);
         System.out.println("Status do pedido: " + status);
+        System.out.println("Metade do valor paga: " + pagou_metade);
     }
 
     public void cadastrar_encomenda(String tipo) {
